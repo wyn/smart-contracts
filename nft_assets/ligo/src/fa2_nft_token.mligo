@@ -124,11 +124,11 @@ let fa2_main (param, storage : fa2_entry_points * nft_token_storage)
     let new_storage = { storage with operators = new_ops; } in
     ([] : operation list), new_storage
 
-  type nft_entry_points =
+type nft_entry_points =
   | Fa2 of fa2_entry_points
   | Token_metadata of token_metadata_param
 
-  let nft_token_main (param, storage : nft_entry_points * nft_token_storage)
+let nft_token_main (param, storage : nft_entry_points * nft_token_storage)
       : (operation  list) * nft_token_storage =
     match param with
     | Fa2 fa2 -> fa2_main (fa2, storage)
